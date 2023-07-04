@@ -1,5 +1,6 @@
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   let expenses = [
     { id: "1", title: "title1", date: new Date("2023-06-30"), amount: 100 },
@@ -15,6 +16,7 @@ function App() {
   
   return (
     <div className="App">
+      <NewExpense />
       <Expenses 
         expenses = {expenses}/>      
     </div>
