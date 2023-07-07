@@ -4,6 +4,8 @@ import './ExpenseForm.css';
 
 function ExpenseForm() {
 
+//TODO single method and form submit
+
     // using multiple states to manage variable
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
@@ -50,6 +52,16 @@ function ExpenseForm() {
         setTitle(event.target.value);
         console.log(event.target.value);
     }
+
+    // const singleHandler = (indetifier, value) =>{
+    //     if('' === indetifier) {
+    //            //setter method
+    //            //in jsx use arrowfunction 
+    //            onChange={(event) => {
+    //              singleHandler('<control name>', event.target.value)
+    //            }}
+    //     }
+    // }
 
     return (
         <form>
