@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-function ExpenseForm() {
+function ExpenseForm(props) {
 
 //TODO single method and form submit
 
@@ -72,6 +72,7 @@ function ExpenseForm() {
             amount : amount
         }
 
+        props.newExpense(expenseData);
         setTitle('');
         setDate('');
         setAmount('');

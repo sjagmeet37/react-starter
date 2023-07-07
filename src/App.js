@@ -14,9 +14,14 @@ function App() {
     { id: "9", title: "title9", date: new Date("2023-06-30"), amount: 900 },
   ];
   
+  const addExpense = (expense) => {
+      console.log(expense);
+  }
+
   return (
     <div className="App">
-      <NewExpense />
+      <NewExpense 
+      onNewExpense={addExpense}/>
       <Expenses 
         expenses = {expenses}/>      
     </div>
