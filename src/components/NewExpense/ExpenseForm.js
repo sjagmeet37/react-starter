@@ -26,10 +26,10 @@ function ExpenseForm() {
         console.log(event.target.value);
 
         //setting avriable in single state
-        setUserInput({
-            ...userInpur,
-            title : event.target.value
-        })
+        // setUserInput({
+        //     ...userInpur,
+        //     title : event.target.value
+        // })
 
         //above assignment has issue as states are not updated instantly but they are scheduled 
         // and you might be operating on stale data use method below and prevState provided by default by react
@@ -44,12 +44,12 @@ function ExpenseForm() {
     }
 
     const dateChangeHandler = (event) => {
-        setTitle(event.target.value);
+        setDate(event.target.value);
         console.log(event.target.value);
     }
 
     const amountChangeHandler = (event) => {
-        setTitle(event.target.value);
+        setAmount(event.target.value);
         console.log(event.target.value);
     }
 
@@ -63,8 +63,20 @@ function ExpenseForm() {
     //     }
     // }
 
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const expenseData = {
+            title : title,
+            date : new Date(date),
+            amount : amount
+        }
+
+        console.log(expenseData);
+    }
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
