@@ -14,6 +14,7 @@ function ExpenseItem(props) {
 
   // setTimeout(() => {setName('Timout Name')}, 10000);
   return (
+    <li>
     <Cards className="expense-item">
         <ExpenseDate 
         date={props.date}/>
@@ -22,7 +23,7 @@ function ExpenseItem(props) {
         <div className="expense-item__price">${props.amount}</div>
         <button onClick={clickHandler}>Click for Event</button>
       </div>
-    </Cards>
+    </Cards></li>
   );
 }
 
