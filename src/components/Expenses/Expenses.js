@@ -10,13 +10,26 @@ function Expenses(props) {
 const [filterYear, setFilterYear] = useState('2020');
   
 const onExpenseFilter = (year) => {
-    console.log(year);
     setFilterYear(year);
 }
 
-const expenses = props.expenses;
-console.log(expenses)
-console.log(typeof expenses )
+let expenses = props.expenses.filter(expense => {
+  return filterYear === expense.date.getFullYear().toString();
+});
+
+let expenseContent = <p>No items fount!</p>
+
+if(expenses.length > 0) {
+    expenseContent = expenses.map(expense => 
+      <ExpenseItem
+        key={expense.id}
+        name={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+    />
+    );
+}
+
 
 return (
   <div>
@@ -26,14 +39,7 @@ return (
     selectedYear= {filterYear}
     onExpenseFilter={onExpenseFilter}/>
 
-    {expenses.map(expense => 
-      <ExpenseItem
-        key={expense.id}
-        name={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-    />
-    )}
+    {expenseContent}
 
     </Cards>
   </div>
