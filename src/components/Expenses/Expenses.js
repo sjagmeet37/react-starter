@@ -15,6 +15,9 @@ const onExpenseFilter = (year) => {
 }
 
 const expenses = props.expenses;
+console.log(expenses)
+console.log(typeof expenses )
+
 return (
   <div>
     
@@ -22,31 +25,16 @@ return (
     <ExpensesFilter 
     selectedYear= {filterYear}
     onExpenseFilter={onExpenseFilter}/>
+
+    {expenses.map(expense => 
       <ExpenseItem
-        name={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        name={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        name={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        name={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      />
-      <ExpenseItem
-        name={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      />
+        key={expense.id}
+        name={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+    />
+    )}
+
     </Cards>
   </div>
 

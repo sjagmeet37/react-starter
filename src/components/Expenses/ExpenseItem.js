@@ -12,7 +12,7 @@ function ExpenseItem(props) {
     console.log("Clicked !!!!!!")
   }
 
-  setTimeout(() => {setName('Timout Name')}, 10000);
+  // setTimeout(() => {setName('Timout Name')}, 10000);
   return (
     <Cards className="expense-item">
         <ExpenseDate 

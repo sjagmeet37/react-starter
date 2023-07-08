@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
@@ -13,9 +14,15 @@ function App() {
     { id: "8", title: "title8", date: new Date("2023-06-30"), amount: 800 },
     { id: "9", title: "title9", date: new Date("2023-06-30"), amount: 900 },
   ];
+
+  const [expenseList, setExpenseList] = useState(expenses);
   
   const addExpense = (expense) => {
       console.log(expense);
+      setExpenseList((prevState) => {
+          return [...prevState, expense];
+      });
+      expenses.push(expense);
   }
 
   return (
@@ -23,7 +30,7 @@ function App() {
       <NewExpense 
       onNewExpense={addExpense}/>
       <Expenses 
-        expenses = {expenses}/>      
+        expenses = {expenseList}/>      
     </div>
   );
 }

@@ -16,7 +16,8 @@ function ExpenseForm(props) {
     const [userInpur, setUserInput] = useState({
         title : "",
         amount : "",
-        date : ""
+        date : "",
+        id : Math.random()
     });
 
 
